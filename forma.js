@@ -213,6 +213,10 @@ document.getElementById('saveButton').addEventListener('click', function () {
 
     console.log(payload);
 
+    console.log('SIUNČIU Į WORKER');
+console.log('Origin:', window.location.origin);
+console.log('Payload:', payload);
+
     const siunciamaModal = new bootstrap.Modal(
                     document.getElementById('siunciamaModal')
                 );
