@@ -220,7 +220,7 @@ document.getElementById('saveButton').addEventListener('click', function () {
 
     fetch('https://mano-apkalusa-api.sarunas-likas.workers.dev', {
         method: 'POST',
-        mode: 'cors', 
+        // mode: 'cors', 
         headers: {
             'Content-Type': 'application/json'
         },
