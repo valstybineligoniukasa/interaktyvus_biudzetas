@@ -211,15 +211,16 @@ document.getElementById('saveButton').addEventListener('click', function () {
         turnstileToken
     };
 
-     const siunciamaModal = new bootstrap.Modal(
+    console.log(payload);
+
+    const siunciamaModal = new bootstrap.Modal(
                     document.getElementById('siunciamaModal')
                 );
-                siunciamaModal.show();
-
+    siunciamaModal.show();
 
     fetch('https://mano-apkalusa-api.sarunas-likas.workers.dev', {
         method: 'POST',
-        // mode: 'cors', 
+        mode: 'cors', 
         headers: {
             'Content-Type': 'application/json'
         },
