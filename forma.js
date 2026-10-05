@@ -206,11 +206,11 @@ document.getElementById('saveButton').addEventListener('click', function () {
                 );
                 siunciamaModal.show();
 
-    fetch('https://script.google.com/macros/s/AKfycbytuBT54Uxxw2m8dqMGtO9ixWSQ-2h8cp-NTl4WQ1thv5CBXixqjIVsz-JxKgBT5bFm/exec', {
+    fetch('https://mano-apkalusa-api.sarunas-likas.workers.dev', {
         method: 'POST',
-        mode: 'cors', // Užtikriname, kad naršyklė žinotų apie CORS
+        // mode: 'cors', 
         headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(duomenys)
     }
@@ -251,6 +251,7 @@ document.getElementById('saveButton').addEventListener('click', function () {
                 );
                 aciuModal.show();
             } else {
+                
                 console.error(
                     'Serveris atmetė duomenis:',
                     data.message
