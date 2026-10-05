@@ -201,34 +201,17 @@ document.getElementById('saveButton').addEventListener('click', function () {
 
     duomenys.prioritetas_vdu = prioritetai;
 
-    const turnstileToken =
-        document.querySelector(
-        '[name="cf-turnstile-response"]'
-    )?.value;
-
-    const payload = {
-        ...duomenys,
-        turnstileToken
-    };
-
-    console.log(payload);
-
-    console.log('SIUNČIU Į WORKER');
-console.log('Origin:', window.location.origin);
-console.log('Payload:', payload);
-
     const siunciamaModal = new bootstrap.Modal(
-                    document.getElementById('siunciamaModal')
-                );
+        document.getElementById('siunciamaModal')
+    );
     siunciamaModal.show();
 
     fetch('https://mano-apkalusa-api.sarunas-likas.workers.dev', {
         method: 'POST',
-        // mode: 'cors', 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(duomenys)
     }
     )
         .then(async response => {
@@ -267,7 +250,7 @@ console.log('Payload:', payload);
                 );
                 aciuModal.show();
             } else {
-                
+
                 console.error(
                     'Serveris atmetė duomenis:',
                     data.message
