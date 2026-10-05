@@ -201,10 +201,21 @@ document.getElementById('saveButton').addEventListener('click', function () {
 
     duomenys.prioritetas_vdu = prioritetai;
 
+    const turnstileToken =
+        document.querySelector(
+        '[name="cf-turnstile-response"]'
+    )?.value;
+
+    const payload = {
+        ...duomenys,
+        turnstileToken
+    };
+
      const siunciamaModal = new bootstrap.Modal(
                     document.getElementById('siunciamaModal')
                 );
                 siunciamaModal.show();
+
 
     fetch('https://mano-apkalusa-api.sarunas-likas.workers.dev', {
         method: 'POST',
@@ -212,7 +223,7 @@ document.getElementById('saveButton').addEventListener('click', function () {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(duomenys)
+        body: JSON.stringify(payload)
     }
     )
         .then(async response => {
